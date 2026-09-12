@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pinewood — 1997</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- TITLE / LOADING SCREEN -->
+    <!-- ============================= -->
+
+    <div id="titleScreen">
+
+        <div class="titleGlitch">
+            PINEWOOD
+        </div>
+
+        <div class="year">
+            1997
+        </div>
+
+        <button id="startButton">
+            START
+        </button>
+
+        <p class="titleHint">
+            Something is living in the woods.
+        </p>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- MAIN GAME -->
+    <!-- ============================= -->
+
+    <main id="game">
+
+        <canvas
+            id="gameCanvas"
+            width="960"
+            height="540">
+        </canvas>
+
+
+        <!-- ========================= -->
+        <!-- PLAYER HUD -->
+        <!-- ========================= -->
+
+        <div id="hud">
+
+            <div class="hudBox">
+
+                <div class="hudLabel">
+                    HEALTH
+                </div>
+
+                <div class="bar">
+                    <div
+                        id="healthBar"
+                        class="healthFill">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="hudBox">
+
+                <div class="hudLabel">
+                    STAMINA
+                </div>
+
+                <div class="bar">
+                    <div
+                        id="staminaBar"
+                        class="staminaFill">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="dayDisplay">
+                DAY 1
+            </div>
+
+            <div id="timeDisplay">
+                4:37 PM
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- INTERACTION PROMPT -->
+        <!-- ========================= -->
+
+        <div id="interactionPrompt">
+            PRESS E
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- DIALOGUE -->
+        <!-- ========================= -->
+
+        <div id="dialogueBox">
+
+            <div id="speakerName">
+                ---
+            </div>
+
+            <div id="dialogueText">
+                ---
+            </div>
+
+            <div id="dialogueChoices">
+            </div>
+
+            <div id="dialogueContinue">
+                ENTER
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- BATTLE SCREEN -->
+        <!-- ========================= -->
+
+        <div id="battleScreen">
+
+            <div id="battleBackground">
+            </div>
+
+            <div id="enemyName">
+                UNKNOWN CREATURE
+            </div>
+
+            <div id="enemyHealthContainer">
+
+                <div id="enemyHealthBar">
+                </div>
+
+            </div>
+
+            <!-- Large detailed enemy artwork goes here -->
+
+            <div id="enemyArtwork">
+            </div>
+
+
+            <!-- PLAYER BATTLE INFORMATION -->
+
+            <div id="battlePlayer">
+
+                <div id="battlePlayerName">
+                    YOU
+                </div>
+
+                <div class="battleStat">
+                    HP
+                </div>
+
+                <div class="battleBar">
+                    <div id="battleHealthBar">
+                    </div>
+                </div>
+
+                <div class="battleStat">
+                    STAMINA
+                </div>
+
+                <div class="battleBar">
+                    <div id="battleStaminaBar">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- BATTLE MENU -->
+
+            <div id="battleMenu">
+
+                <button data-action="quick">
+                    QUICK ATTACK
+                    <span>5 STAMINA</span>
+                </button>
+
+                <button data-action="heavy">
+                    HEAVY ATTACK
+                    <span>15 STAMINA</span>
+                </button>
+
+                <button data-action="special">
+                    SPECIAL ATTACK
+                    <span>25 STAMINA</span>
+                </button>
+
+                <button data-action="rest">
+                    REST
+                    <span>+20 STAMINA</span>
+                </button>
+
+                <button data-action="run">
+                    RUN
+                </button>
+
+            </div>
+
+
+            <div id="battleMessage">
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- CUTSCENE SCREEN -->
+        <!-- ========================= -->
+
+        <div id="cutsceneScreen">
+
+            <div id="cutsceneImage">
+            </div>
+
+            <div id="cutsceneText">
+            </div>
+
+            <div id="cutsceneContinue">
+                PRESS ENTER
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- DEATH SCREEN -->
+        <!-- ========================= -->
+
+        <div id="deathScreen">
+
+            <div class="deathTitle">
+                YOU DIED
+            </div>
+
+            <div id="deathMessage">
+                The woods were not as empty as you thought.
+            </div>
+
+            <button id="restartButton">
+                RESTART
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- NEWSPAPER / DOCUMENT VIEW -->
+        <!-- ========================= -->
+
+        <div id="documentViewer">
+
+            <div id="newspaper">
+
+                <div id="newspaperTitle">
+                    THE PINEWOOD HERALD
+                </div>
+
+                <div id="newspaperDate">
+                    OCTOBER 14, 1997
+                </div>
+
+                <div id="newspaperHeadline">
+                    LOCAL MAN MISSING NEAR WOODS
+                </div>
+
+                <div id="newspaperBody">
+
+                    Authorities continue searching for
+                    a local resident who disappeared
+                    near the northern forest.
+
+                    <br><br>
+
+                    Residents report hearing strange
+                    noises coming from the area late
+                    at night.
+
+                    <br><br>
+
+                    Officials have asked residents to
+                    avoid the old research property.
+
+                </div>
+
+                <button id="closeDocument">
+                    CLOSE
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="game.js"></script>
+    <script src="world.js"></script>
+    <script src="characters.js"></script>
+    <script src="story.js"></script>
+
+</body>
+</html>
